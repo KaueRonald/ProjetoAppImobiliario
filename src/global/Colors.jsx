@@ -8,5 +8,6 @@ export default{
     backgroundMapColor:'#E5E5E5',
     grayTextColor:'#5C8599',
     backgroundRegisterColor:'#F2F3F5',
-    blueRegisterColor:'#15C3D6'
+    blueRegisterColor:'#15C3D6',
+    ButtonColor: '#15C3D6'
 }
