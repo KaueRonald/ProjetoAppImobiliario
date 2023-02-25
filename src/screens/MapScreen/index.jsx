@@ -1,17 +1,21 @@
 import React, {useState } from "react";
 import { Button, TouchableOpacity, View , Text} from "react-native"
-import MapView,{ Marker }from 'react-native-maps'
+import MapView,{Marker}from 'react-native-maps'
+
+import mapMarker from "../../../assets/map-marker.png";
 
 export default MapScreen = ({ navigation }) => {
-    const [marker, setMarker] = useState([]);
+  const [position, setPosition] = useState([{ latitude: 0, longitude: 0 }]);
 
-    const handleNewMarker = (coordinate) => {
-      setMarker([...marker, coordinate]);
-    };
+
+  function handleMarkerPosition(coordinate) {
+    setPosition([...position, coordinate]);
+    
+}
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <MapView
-              onPress={(e) => handleNewMarker(e.nativeEvent.coordinate)}
+              onPress={(e) => handleMarkerPosition(e.nativeEvent.coordinate)}
               style={{
                 height: '100%',
                 width: '100%',
@@ -24,10 +28,13 @@ export default MapScreen = ({ navigation }) => {
                 longitudeDelta: 0.008,
               }}
             >
-            {marker.length > 0 &&
-                marker.map((m) => {
+            {position.length > 0 &&
+                position.map((m) => {
             return (
-              <Marker coordinate={m} key={Math.random().toString()}/>
+              <Marker
+               icon={mapMarker}
+               coordinate={m}
+               key={Math.random().toString()}/>
             );
           })}
             </MapView>
