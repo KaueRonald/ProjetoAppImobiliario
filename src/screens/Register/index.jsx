@@ -6,7 +6,12 @@ import colors from "../../global/Colors";
 export default RegisterScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Cadastre-se</Text>
+            <Text style={{    
+                fontSize: 20,
+                marginBottom: 30
+            }}>
+            Cadastre-se
+            </Text>
 
 
             <TouchableOpacity>
