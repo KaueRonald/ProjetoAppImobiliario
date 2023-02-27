@@ -4,7 +4,7 @@ import { View, StyleSheet, TextInput, TouchableOpacity } from "react-native"
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Input = (props)=>{
-    const [sec, setSec] = useState(props.secureTextEntry)
+
 
     return(
         <View style={styles.container}>
@@ -13,19 +13,9 @@ const Input = (props)=>{
                 underlineColorAndroid="transparent"
                 placeholderTextColor={"#7B8794"}
                 {...props}
-                secureTextEntry={sec}
+
             />
             <Icon name={props.iconName} size={26} color="black" style={styles.icon} />
-            {props.secureTextEntry &&(
-                 <TouchableOpacity onPress={() => setSec(!sec)}>
-                <Icon 
-                    name={sec ? 'eye' : 'eye-off'} 
-                    size={26} 
-                    color="black" 
-                    style={styles.iconSecret}>
-                </Icon>
-            </TouchableOpacity>
-            )}
            
         </View>
 
