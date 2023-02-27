@@ -1,12 +1,13 @@
-import { Button, TouchableOpacity, View, Text } from "react-native";
+import {TouchableOpacity, View, Text, StyleSheet} from "react-native";
 import MapView from "react-native-maps"
+import Button from "../../components/Button";
+import colors from "../../global/Colors";
 
-import Colors from "../../global/Colors";
 
 export default HomeScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <View style={{width: 250, height: 100, backgroundColor: Colors.backgroundMapColor, alignItems:'center', justifyContent:'center'}}>
+            <View style={{width: 250, height: 100, backgroundColor: colors.backgroundMapColor, alignItems:'center', justifyContent:'center'}}>
             <MapView
               style={{
                 height: '100%',
@@ -24,13 +25,33 @@ export default HomeScreen = ({ navigation }) => {
                 <TouchableOpacity onPress={() => navigation.navigate('ViewMap')}>
                 </TouchableOpacity>
             </View>
-            <Text>DashBoard</Text>
-            <TouchableOpacity>
-                <Button
-                    title="+"
-                    onPress={() => navigation.navigate('MapScreen')}
-                />
-            </TouchableOpacity>
+          
+              <TouchableOpacity style={[styles.buttonPlus]}>
+                <Text>DashBoard</Text>
+                  <Button
+                      onPress={() => navigation.navigate('MapScreen')}
+                      color={colors.blueColor}
+                      border={6}
+                      width={60}
+                      height={57}
+                      title="+"
+                  />
+              </TouchableOpacity>
+
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+  buttonPlus:{
+    position:'absolute',
+    left:24,
+    right:24,
+    bottom:32,
+    height:46,
+    paddingLeft:24,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center'
+  }
+});

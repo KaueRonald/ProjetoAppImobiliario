@@ -1,7 +1,9 @@
 import React, {useState } from "react";
-import { Button, TouchableOpacity, View , Image, Text} from "react-native"
+import {TouchableOpacity, View , Image, StyleSheet} from "react-native"
 import MapView,{Marker}from 'react-native-maps'
 
+import Button from "../../components/Button";
+import colors from "../../global/Colors";
 import mapMarker from "../../../assets/map-marker.png";
 
 export default MapScreen = ({ navigation }) => {
@@ -39,12 +41,28 @@ export default MapScreen = ({ navigation }) => {
             );
           })}
             </MapView>
-            <TouchableOpacity>
+            <TouchableOpacity style={[styles.buttonMap]}>
                 <Button
-                    title="Próximo"
                     onPress={() => navigation.navigate('RegisterImmobile')}
+                    color={colors.blueColor}
+                    border={6}
+                    width={343}
+                    height={52}
+                    title="Próximo"
                 />
             </TouchableOpacity>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+  buttonMap:{
+  justifyContent: 'center',
+  alignItems:'center',
+  height: 56,
+  position:'absolute',
+  left: 24,
+  right: 24,
+  bottom: 40,
+  }
+});
