@@ -1,18 +1,32 @@
 import React from 'react'
+import { useState } from 'react'
 import { View, StyleSheet, TextInput, TouchableOpacity } from "react-native"
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-const Input = ()=>{
+const Input = (props)=>{
+    const [sec, setSec] = useState(props.secureTextEntry)
+
     return(
         <View style={styles.container}>
-            <TextInput style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholderTextColor={"#7B8794"}
+            <TextInput 
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholderTextColor={"#7B8794"}
+                {...props}
+                secureTextEntry={sec}
             />
-            <Icon name="account" size={26} color="black" style={styles.icon}></Icon>
-            <TouchableOpacity>
-                <Icon name="eye" size={26} color="black" style={styles.iconSecret}></Icon>
+            <Icon name={props.iconName} size={26} color="black" style={styles.icon} />
+            {props.secureTextEntry &&(
+                 <TouchableOpacity onPress={() => setSec(!sec)}>
+                <Icon 
+                    name={sec ? 'eye' : 'eye-off'} 
+                    size={26} 
+                    color="black" 
+                    style={styles.iconSecret}>
+                </Icon>
             </TouchableOpacity>
+            )}
+           
         </View>
 
         
@@ -38,7 +52,7 @@ const styles = StyleSheet.create({
     },
     icon:{
         position:'absolute',
-        left:30,
+        left:10,
         top:12,
     },
     iconSecret:{
