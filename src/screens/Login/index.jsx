@@ -9,7 +9,8 @@ export default LoginScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Login Screen</Text>
-            <TouchableOpacity >
+            <TouchableOpacity >  
+                
                 <Input 
                 iconName={'account'} 
                 placeholder="E-mail" 
