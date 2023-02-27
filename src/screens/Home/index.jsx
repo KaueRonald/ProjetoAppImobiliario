@@ -7,7 +7,6 @@ import colors from "../../global/Colors";
 export default HomeScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <View style={{width: 250, height: 100, backgroundColor: colors.backgroundMapColor, alignItems:'center', justifyContent:'center'}}>
             <MapView
               style={{
                 height: '100%',
@@ -24,9 +23,9 @@ export default HomeScreen = ({ navigation }) => {
             </MapView>
                 <TouchableOpacity onPress={() => navigation.navigate('ViewMap')}>
                 </TouchableOpacity>
-            </View>
+            
           
-              <TouchableOpacity style={[styles.buttonPlus]}>
+              <TouchableOpacity onPress={() => navigation.navigate('ViewMap')} style={[styles.buttonPlus]}>
                 <Text>DashBoard</Text>
                   <Button
                       onPress={() => navigation.navigate('MapScreen')}
@@ -45,6 +44,7 @@ export default HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   buttonPlus:{
     position:'absolute',
+    backgroundColor:colors.backgroundMapColor,
     left:24,
     right:24,
     bottom:32,
