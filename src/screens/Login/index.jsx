@@ -8,7 +8,7 @@ export default LoginScreen = ({ navigation }) => {
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Entre na sua conta</Text>
+            <Text style={styles.title}>Entre na sua conta</Text>
             <TouchableOpacity >  
                 
                 <Input 
@@ -36,7 +36,7 @@ export default LoginScreen = ({ navigation }) => {
                 />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                <Text>Não tem conta?<Text style={styles.singUp}>Cadastre-se</Text></Text>
+                <View style={{paddingTop: 12}}><Text style={{fontSize: 15}}>Não tem conta? <Text style={styles.singUp}>Cadastre-se</Text></Text></View>
             </TouchableOpacity>
         </View>
     );
@@ -45,5 +45,9 @@ export default LoginScreen = ({ navigation }) => {
 export const styles = StyleSheet.create({
   singUp: {
     color: colors.blueRegisterColor
+  },
+  title: {
+    fontSize: 20,
+    marginBottom: 30
   }
 });
