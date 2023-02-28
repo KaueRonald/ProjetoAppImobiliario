@@ -5,8 +5,6 @@ import Colors from "../../global/Colors";
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import * as ImagePicker from 'expo-image-picker';
 
-
-
 const handleimageUser = () => {
 
     Alert.alert('Selecione', 'Selecione de onde quer pegar a foto',
@@ -24,7 +22,7 @@ const handleimageUser = () => {
 
         ],
         {
-            cancelable: true 
+            cancelable: true
         },
     )
 }
@@ -56,17 +54,6 @@ const pickImageFromCamera = async () => {
 
 }
 
-const UploadComponent = ({ icon }) => {
-    return (
-        <SafeAreaView>
-            <TouchableOpacity >
-                <Text onPress={() => handleimageUser()}>aasdsa</Text>
-            </TouchableOpacity>
-
-
-        </SafeAreaView>
-    )
-}
 
 const styles = StyleSheet.create({
     input: {
@@ -80,4 +67,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default UploadComponent;
+export default handleimageUser;
