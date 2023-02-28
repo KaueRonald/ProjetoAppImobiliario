@@ -44,7 +44,7 @@ export default RegisterScreen = ({ navigation }) => {
                     border={6}
                     width={343}
                     height={52}
-                    title="REGISTER"
+                    title={<Text style={{color: colors.whiteColor}}>REGISTER</Text>}
                 />
             </TouchableOpacity>
 
