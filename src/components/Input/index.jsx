@@ -1,10 +1,8 @@
 import React from 'react'
-import { useState } from 'react'
 import { View, StyleSheet, TextInput, TouchableOpacity } from "react-native"
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Input = (props) => {
-    const [sec, setSec] = useState(props.secureTextEntry)
 
     return (
         <View style={styles.container}>
