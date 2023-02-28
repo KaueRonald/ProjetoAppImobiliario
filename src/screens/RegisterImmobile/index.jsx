@@ -3,7 +3,7 @@ import Colors from '../../global/Colors'
 
 import Button from '../../components/Button';
 import InputComponent from '../../components/TextInput';
-import UploadComponent from '../../components/Upload';
+import handleimageUser from '../../components/Upload';
 
 export default RegisterImmobile = ({ navigation }) => {
     return (
@@ -22,6 +22,7 @@ export default RegisterImmobile = ({ navigation }) => {
                     <Text style={{ color: Colors.blueTextColor, fontSize: 13, fontWeight: "regular", marginTop: 10, marginBottom: 10 }}>Fotos</Text>
                     <View style={{ borderColor: Colors.blueColor, borderWidth: 1.5, borderRadius: 20, borderStyle: "dashed", color: Colors.blueColor }}>
                         <Button
+                            onPress={() => handleimageUser()}
                             font={30}
                             colortitle={Colors.blueColor}
                             title='+'
