@@ -39,7 +39,7 @@ export default RegisterScreen = ({ navigation }) => {
                     keyboardType="default"
                 />
                 <Button
-                    onPress={() => navigation.navigate('Home')}
+                    onPress={() => navigation.navigate('Login')}
                     color={colors.blackColor}
                     border={6}
                     width={343}
