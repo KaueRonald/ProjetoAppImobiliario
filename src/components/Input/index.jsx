@@ -13,22 +13,10 @@ const Input = (props) => {
                 underlineColorAndroid="transparent"
                 placeholderTextColor={"#7B8794"}
                 {...props}
-                secureTextEntry={sec}
             />
             <Icon name={props.iconName} size={26} color="black" style={styles.icon} />
-            {props.secureTextEntry && (
-                <TouchableOpacity onPress={() => setSec(!sec)}>
-                    <Icon
-                        name={sec ? 'eye' : 'eye-off'}
-                        size={26}
-                        color="black"
-                        style={styles.iconSecret}>
-                    </Icon>
-                </TouchableOpacity>
-            )}
 
         </View>
-
 
     )
 }
@@ -53,11 +41,6 @@ const styles = StyleSheet.create({
     icon: {
         position: 'absolute',
         left: 10,
-        top: 12,
-    },
-    iconSecret: {
-        position: 'absolute',
-        right: 30,
         top: 12,
     }
 })
