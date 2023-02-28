@@ -1,22 +1,18 @@
-import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Text, Alert } from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons';
-import { Ionicons } from '@expo/vector-icons';
-import Colors from "../../global/Colors";
-import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import {Alert } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
 
-const handleimageUser = () => {
+const handleimageUser = ({setImage}) => {
 
     Alert.alert('Selecione', 'Selecione de onde quer pegar a foto',
         [
             {
                 text: "Galeria",
-                onPress: () => pickImageFromGalery(),
+                onPress: () => pickImageFromGalery({setImage}),
                 style: "default"
             },
             {
                 text: "Camera",
-                onPress: () => pickImageFromCamera(),
+                onPress: () => pickImageFromCamera({setImage}),
                 style: "default"
             },
 
@@ -26,9 +22,9 @@ const handleimageUser = () => {
         },
     )
 }
-const pickImageFromGalery = async () => {
+const pickImageFromGalery = async ({setImage}) => {
 
-    const options = {
+    /* const options = {
         mediaType: 'photo'
     }
 
@@ -37,12 +33,23 @@ const pickImageFromGalery = async () => {
     if (result?.assets) {
         setImageUser(result.assets[0].uri)
         return
-    }
+    } */
+    let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+
+  
+      if (!result.canceled) {
+        setImage(result.assets[0].uri);
+      }
 }
 
-const pickImageFromCamera = async () => {
+const pickImageFromCamera = async ({setImage}) => {
 
-    const options = {
+    /* const options = {
         mediaType: 'photo',
         saveToPhotos: false,
         cameraType: 'front',
@@ -50,21 +57,19 @@ const pickImageFromCamera = async () => {
     }
 
     const result = await launchCamera(options);
-    console.log(result);
+    console.log(result); */
+
+    let result = await ImagePicker.launchCameraAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+
+  
+      if (!result.canceled) {
+        setImage(result.assets[0].uri);
+      }
 
 }
-
-
-const styles = StyleSheet.create({
-    input: {
-        height: 40,
-        padding: 10,
-        borderWidth: 1,
-        borderRadius: 15,
-        borderColor: Colors.grayTextColor,
-        marginBottom: 20,
-        marginTop: -20
-    }
-})
-
 export default handleimageUser;
