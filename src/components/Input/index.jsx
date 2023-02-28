@@ -21,9 +21,10 @@ const Input = (props) => {
 
 
 const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        marginTop: 20
+
+    container:{
+        flexDirection:'row',
+        paddingBottom: 20
     },
     input: {
         height: 50,
