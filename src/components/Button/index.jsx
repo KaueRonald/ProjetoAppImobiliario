@@ -1,6 +1,4 @@
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
-import colors from '../../global/Colors';
-
 export default function Button(Props) {
   return (
     <View>

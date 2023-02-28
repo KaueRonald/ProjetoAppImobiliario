@@ -32,7 +32,7 @@ export default LoginScreen = ({ navigation }) => {
                     border={6}
                     width={343}
                     height={52}
-                    title="LOG IN"
+                    title={<Text style={{color: colors.whiteColor}}>LOGIN</Text>}
                 />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Register')}>
