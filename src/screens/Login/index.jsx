@@ -2,13 +2,13 @@ import { TouchableOpacity, View, Text } from "react-native";
 import Button from "../../components/Button";
 import colors from "../../global/Colors";
 import Input from "../../components/Input/"
-import { useState } from 'react'
+import { StyleSheet } from 'react-native';
 
 export default LoginScreen = ({ navigation }) => {
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Login Screen</Text>
+            <Text style={styles.title}>Entre na sua conta</Text>
             <TouchableOpacity >  
                 
                 <Input 
@@ -32,12 +32,22 @@ export default LoginScreen = ({ navigation }) => {
                     border={6}
                     width={343}
                     height={52}
-                    title="LOG IN"
+                    title={<Text style={{color: colors.whiteColor}}>LOGIN</Text>}
                 />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                <Text>NÃO TEM CONTA? Cadastre-se</Text>
+                <View style={{paddingTop: 12}}><Text style={{fontSize: 15}}>Não tem conta? <Text style={styles.singUp}>Cadastre-se</Text></Text></View>
             </TouchableOpacity>
         </View>
     );
 }
+
+export const styles = StyleSheet.create({
+  singUp: {
+    color: colors.blueRegisterColor
+  },
+  title: {
+    fontSize: 20,
+    marginBottom: 30
+  }
+});
